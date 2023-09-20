@@ -1,0 +1,26 @@
+{% extends "bar/layout.html" %}
+
+{% block title %}
+    home
+{% endblock %}
+
+{% block body %}
+    <div style="float: right;">
+        <p>Welcome {{ request.user.username }}</p>
+        <p>{{ request.user.email }}</p>
+        <p><a href="{% url 'change_password' %}">Change Password</a></p>
+        <p><a href="{% url 'signin' %}">Logout</a></p>
+    </div>
+
+    <div>
+        <form method="post">
+            {% csrf_token %}
+                {{ form }}
+            <input type="submit" value="Add an employee">
+        </form>
+        <div>
+            <a href="{% url 'staff' %}">Staff</a>
+        </div>
+    </div>
+
+{% endblock %}

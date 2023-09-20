@@ -1,0 +1,35 @@
+{% extends "bar/layout.html" %}
+
+{% block title %}
+    staff
+{% endblock %}
+
+{% block body %}
+    <div>
+        <table class="table table-dark table-striped-columns">
+            <thead>
+                <td>First name</td>
+                <td>Last name</td>
+                <td>Post</td>
+                <td>Location</td>
+                <td>Upadte</td>
+                <td>Delete</td>
+            </thead>
+
+            {% for staff in staff %}
+            <tr>
+                <td>{{ staff.first_name }}</td>
+                <td>{{ staff.last_name }}</td>
+                <td>{{ staff.position }}</td>
+                <td>{{ staff.location }}</td>
+                <td><a href="{% url 'update_employee' staff.id %}"><button>Update</button></a></td>
+                <td><a href="{% url 'delete_employee' staff.id %}"><button>Delete</button></a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div>
+            <a href="{% url 'index' %}">Return to home page</a>
+        </div>
+    </div>
+
+{% endblock %}

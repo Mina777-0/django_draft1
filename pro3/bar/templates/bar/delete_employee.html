@@ -1,0 +1,22 @@
+{% extends "bar/layout.html" %}
+
+{% block title %}
+    Delete
+{% endblock %}
+
+{% block body %}
+<div>
+    <h1>Are you sure you want to delete {{ employee }}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <a href="{% url 'staff' %}">Cancel</a>
+        <input type="submit" value="Confirm">
+
+    </form>
+    
+
+</div>
+
+{% endblock %}

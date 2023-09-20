@@ -1,0 +1,23 @@
+{% extends "bar/layout.html" %}
+
+{% block title %}
+    signin
+{% endblock %}
+
+{% block body %}
+<div style="float:none;">
+    {% if message %}
+        <h1 style="color: red;">{{ message }}</h1>
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Login">
+    </form>
+    <a class="btn btn-primary" href="{% url 'signup' %}" role="button">Signup</a>
+    <br>
+    <a href="{% url 'password_reset' %}">Forgot your password?</a>
+</div>
+
+{% endblock %}
